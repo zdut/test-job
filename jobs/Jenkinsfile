@@ -5,6 +5,7 @@ pipeline {
             steps {
                 script {
                     sh "whoami"
+                    sh "helm ls"
                 }
             }
         }
