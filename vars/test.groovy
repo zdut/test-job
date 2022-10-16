@@ -5,11 +5,12 @@ def call() {
                 echo "Hello";
                 whoami;
                 pwd;
+                ls;
             """
         }
 
         stage("Create folder") {
-            jobDsl targets: 'work/jobs/*.groovy',
+            jobDsl targets: 'jobs/*.groovy',
                     additionalParameters: [repos: ["test1", "test2", "test3"]]
         }
     }
