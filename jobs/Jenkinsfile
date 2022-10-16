@@ -1,0 +1,7 @@
+pipeline {
+    stages {
+        stage('Login to ECR') {
+            sh "whoami"
+        }
+    }
+}
