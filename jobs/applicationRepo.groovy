@@ -11,7 +11,7 @@ def createFolder(path, service) {
 }
 
 def createJob(repoFolder, service) {
-    pipelineJob(repoFolder + service + "-dev") {
+    pipelineJob(repoFolder + "/" + service + "-dev") {
         definition {
             cps {
                 script(readFileFromWorkspace("work/jobs/Jenkinsfile"))
