@@ -14,7 +14,7 @@ def createJob(repoFolder, service) {
     pipelineJob(repoFolder + service + "-dev") {
         definition {
             cps {
-                script(readFileFromWorkspace("jobs/Jenkinsfile"))
+                script(readFileFromWorkspace("work/jobs/Jenkinsfile"))
                 sandbox()
             }
         }
