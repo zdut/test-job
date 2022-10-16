@@ -4,6 +4,7 @@ def call() {
             sh """
                 echo "Hello";
                 whoami;
+                pwd;
             """
         }
 
