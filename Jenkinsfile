@@ -25,7 +25,7 @@ pipeline {
             }
         }
 
-        stage("Create .npmrc file.") {
+        stage("Create .npmrc file") {
             steps {
                 script {
                     sh '''
