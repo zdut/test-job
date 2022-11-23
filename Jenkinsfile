@@ -43,7 +43,7 @@ pipeline {
             }
         }
 
-        stage("Publish Checks") {
+        stage("Publish Checks - 1") {
             steps {
                 publishChecks conclusion: 'FAILURE', detailsURL: 'https://jenkins.dev.trustme.bindsystems.tech/job/diddocumentservice-PR-check/', name: 'test-check-name', summary: 'test-check-summary', text: 'test-check-text', title: 'test-check-title'
             }
