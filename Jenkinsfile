@@ -43,16 +43,9 @@ pipeline {
             }
         }
 
-        stage("Style check and test") {
+        stage("Publish Checks") {
             steps {
-                script {
-                    sh """
-                        npm ci
-                        npx prettier --check .
-                        npm run lint
-                        npm test
-                    """
-                }
+                publishChecks conclusion: 'FAILURE', detailsURL: 'https://jenkins.dev.trustme.bindsystems.tech/job/diddocumentservice-PR-check/', name: 'test-check-name', summary: 'test-check-summary', text: 'test-check-text', title: 'test-check-title'
             }
         }
     }
