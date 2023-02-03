@@ -10,12 +10,10 @@ on:
         description: 'Manual Workflow Trigger - Default True'
         required: true
         type: boolean
-    #  pull_request:
-    #    branches: ['main']
-    #    types:
-    #      - closed
-    pull_request_review:
-      types: [ submitted ]
+    pull_request:
+      branches: ['main']
+      types:
+        - closed
 
 jobs:
   buildTestPublish:
