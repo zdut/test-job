@@ -17,7 +17,7 @@ on:
 
 jobs:
   buildTestPublish:
-    #    if: (github.event.pull_request.merged || ${{ inputs.tags }})
+    if: (github.event.pull_request.merged || ${{ inputs.tags }})
     #    if: github.event.review.state == 'approved' || ${{ inputs.tags }}
     runs-on: ubuntu-latest
     steps:
