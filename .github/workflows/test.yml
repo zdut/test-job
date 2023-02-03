@@ -10,14 +10,18 @@ on:
         description: 'Manual Workflow Trigger - Default True'
         required: true
         type: boolean
-  pull_request:
-    branches: ['main']
-    types:
-      - closed
+    #  pull_request:
+    #    branches: ['main']
+    #    types:
+    #      - closed
+    pull_request_review:
+      types: [ submitted ]
 
 jobs:
   buildTestPublish:
-    if: github.event.pull_request.merged == true || ${{ inputs.tags }}
+#    if: (github.event.pull_request.merged || ${{ inputs.tags }})
+    if: github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: echo 'Hello world'
