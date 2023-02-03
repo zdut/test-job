@@ -11,15 +11,24 @@ on:
         required: true
         type: boolean
     pull_request:
-      branches: ['main']
+      branches: [ 'main' ]
       types:
         - closed
 
 jobs:
   buildTestPublish:
-#    if: (github.event.pull_request.merged || ${{ inputs.tags }})
-    if: github.event.review.state == 'approved' || ${{ inputs.tags }}
+    #    if: (github.event.pull_request.merged || ${{ inputs.tags }})
+    #    if: github.event.review.state == 'approved' || ${{ inputs.tags }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - run: echo 'Hello world'
+  printJob:
+    name: Print event
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
